@@ -46,10 +46,6 @@ class WorkflowDetails(APIView):
     def put(self, request, id, format=None):
         """
         Update workflow for the given ID
-        :param request:
-        :param id:
-        :param format:
-        :return:
         """
         _workflow = self.get_workflow(id)
         _serializer = WorkflowSerializer(_workflow, data=request.data)
@@ -61,10 +57,6 @@ class WorkflowDetails(APIView):
     def delete(self, request, id, format=None):
         """
         Delete a Workflow
-        :param request:
-        :param id:
-        :param format:
-        :return:
         """
         _workflow = self.get_workflow(id)
         _workflow.delete()
@@ -82,10 +74,6 @@ class CommentList(APIView):
     def get(self, request, workflow_id, format=None):
         """
         List all Comments for a workflow
-        :param request:
-        :param workflow_id:
-        :param format:
-        :return:
         """
         _workflow = self.get_workflow(workflow_id)
         _comment = Comment.objects.all().filter(workflow=_workflow)
@@ -95,10 +83,6 @@ class CommentList(APIView):
     def post(self, request, workflow_id, format=None):
         """
         Create a new Comment for a Workflow
-        :param request:
-        :param workflow_id:
-        :param format:
-        :return:
         """
         _workflow = self.get_workflow(workflow_id)
         _serializer = CommentSerializer(data=request.data)
@@ -108,9 +92,6 @@ class CommentList(APIView):
         return Response(_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class CommentDetails(APIView):
-    """
-    Retrieve, update or delete a Comment instance.
-    """
     def get_comment(self , id, workflow):
         try:
             return Comment.objects.get(pk=id, workflow=workflow)
@@ -124,12 +105,18 @@ class CommentDetails(APIView):
             raise Http404
 
     def get(self, request, workflow_id, id):
+        """
+        Get comment details by id
+        """
         _workflow = self.get_workflow(workflow_id)
         _comment = self.get_comment(id, _workflow)
         _serializer = CommentSerializer(_comment)
         return Response(_serializer.data)
 
     def put(self, request, workflow_id, id):
+        """
+        Update a comment
+        """
         _workflow = self.get_workflow(workflow_id)
         _comment = self.get_comment(id, _workflow)
         _serializer = CommentSerializer(_comment, data=request.data)
@@ -139,6 +126,9 @@ class CommentDetails(APIView):
         return Response(_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, workflow_id, id):
+        """
+        Delete a comment
+        """
         _workflow = self.get_workflow(workflow_id)
         _comment = self.get_comment(id, _workflow)
         _comment.delete()
