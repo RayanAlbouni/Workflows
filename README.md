@@ -16,7 +16,7 @@ A comment is a message left by someone about a workflow. A comment has the name 
 ```commandline
 git clone https://github.com/RayanAlbouni/Workflows.git
 ```
-* cd into workflowsproject Folder 
+* cd into Workflows Folder 
 ```commandline
 cd Workflows
 ``` 
