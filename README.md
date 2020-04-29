@@ -38,21 +38,20 @@ python manage.py migrate
 ```
 * Create an initial user named 'admin' with a password of 'password'
 ```commandline
-python manage.py createsuperuser --email --username admin
+python manage.py createsuperuser --email test@example.com --username admin
 ```
 * Create an initial migration, and sync the database for the first time
 ```commandline
 python manage.py makemigrations workflowsproject
 python manage.py migrate
 ```
+* Run all unit tests:
+```commandline
+python manage.py test
+```
 * Run the project
 ```commandline
 python manage.py runserver
-```
-
-* To run unit test:
-```commandline
-python manage.py test
 ```
 
 * To display OpenAPI spec, open the link in your browser:
