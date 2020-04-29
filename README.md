@@ -7,7 +7,7 @@ A comment is a message left by someone about a workflow. A comment has the name 
 
 # Clone and Build
 ### Requirements
-* Python 3.8.2 https://www.python.org/ftp/python/3.8.2/python-3.8.2.exe
+* Python (3.5, 3.6, 3.7, 3.8) https://www.python.org/ftp/python/3.8.2/python-3.8.2.exe
 * Git https://git-scm.com/download/win
  
 ### Build the project
