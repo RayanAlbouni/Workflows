@@ -6,6 +6,7 @@ A workflow is a series of ordered steps to be followed in order to achieve a res
 A comment is a message left by someone about a workflow. A comment has the name of the person who posted and the text of the comment.
 
 # Clone and Build
+*These steps explain how to clone and build the project on Windows*
 ### Requirements
 * Python (3.5, 3.6, 3.7, 3.8) https://www.python.org/ftp/python/3.8.2/python-3.8.2.exe
 * Git https://git-scm.com/download/win
